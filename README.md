@@ -1,18 +1,26 @@
-# AML_Transaction-_Monitoring_Analysis
+# AML_Transaction_Monitoring_Analysis
 An end to end AML/KYC transaction monitoring and risk analysis project using SQL, Python, Excel, and Power BI focused on client and transaction data to identify suspicious activity, 
 sanctions/FATF exposure, high-risk sectors and countries, transaction patterns, alert-rule concentration and behavioural analysis. 
+
+# Project Overview
 This project analyses 2000 clients and 50,000 transactions for FATF/OFAC exposure and transaction-monitoring alerts. Here the client master is joined with the transaction ledger to quantify
-alert activity, identify concentration by sector and country, measure monthly stability, and rank clients for review. A transaction is labelled suspicious when at least one of five transaction
--level flags is active - OFAC match, FATF-country exposure, structuring, rapid movement, or trade mispricing.
+alert activity, identify concentration by sector and country, measure monthly stability, and rank clients for review. A transaction is labelled suspicious when at least one of five transaction-level flags is active - OFAC match, FATF-country exposure, structuring, rapid movement, or trade mispricing.
 
 # Key Performance Indicators:
 •	50,000 transactions across 2,000 clients
+
 •	Total transaction value of approximately $209.8 million
+
 •	4,489 suspicious transactions, representing 8.98% of all transactions
+
 •	Suspicious transactions represented approximately $22.2 million, or 10.6% of total transaction value.
+
 •	Average transaction value is determined to be $ 4,194.14.
+
 •	Median Transaction Value is $1582.19.
+
 •	Average transaction value is approximately 2.65 times the median transaction value, i.e., Mean-to-Median Ratio, which supports the conclusion that transaction values are right-skewed.
+
 •	High Risk clients are estimated to be 1,218 and High Risk client Transactions are estimated to be 36,370.
 
 # Key Findings
@@ -25,6 +33,7 @@ alert activity, identify concentration by sector and country, measure monthly st
 •	The transaction amount distribution is strongly right-skewed. The mean amount is $4,196.14, while the median is $1,582.18, indicating that a relatively small number of large transactions materially influence total value. This supports using both count-based and value-based monitoring thresholds.
 
 •	Suspicious rates by transaction type are: Check 9.34%, Wire 9.13%, SWIFT 8.84%, ACH 8.60%. The differences are useful for segment-specific rule tuning, but they should be tested for statistical significance and operational cost before changing thresholds.
+
 •	1,218 high-risk clients are 60.9% of the base; their suspicious rate is 11.60%, versus 4.99% for Medium and 1.53% for Low. PEP clients average $6,365 per transaction versus $4,063 for non-PEPs; suspicious rates are 10.81% versus 8.87%.
 
 •	Repeated 100%-suspicious corridors involve Venezuela, Syria, Russia, and Iran. Domestic activity is smaller but slightly more alert-dense than cross-border activity: 10.00% versus 8.93%.
@@ -32,6 +41,7 @@ alert activity, identify concentration by sector and country, measure monthly st
 •	The $5,000–$9,999 band has the highest suspicious rate, 15.43%; near-$10,000 clustering warrants review.
 
 •	A transparent client-prioritization score was created using suspicious transaction counts, alert counts, and transaction value. Jones-Atkinson has highest $154.9 K outlier transaction versus a $ 7.1 K client average, z-score 6.18.
+
 # Recommendations:
 * Operational controls:
 Review rapid-movement alerts for false-positive patterns, especially where transfers are routine treasury activity. Introduce a second-stage rule that considers velocity,
@@ -45,5 +55,4 @@ but high-value segments are not overlooked.
 Capture investigator outcomes for every alert, then measure precision, false-positive rate, time to-disposition, and value-at-risk. These labels can support a calibrated
 scoring model and threshold optimization
 
-Alert quality and model governance:
 Capture investigator outcomes for every alert, then measure precision, false-positive rate, time to-disposition, and value-at-risk. These labels can support a calibrated scoring model and threshold optimization
