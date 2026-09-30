@@ -1,17 +1,27 @@
 # AML_Transaction_Monitoring_Analysis
-An end to end AML/KYC transaction monitoring and risk analysis project using SQL, Python, Excel, and Power BI focused on client and transaction data to identify suspicious activity, 
-sanctions/FATF exposure, high-risk sectors and countries, transaction patterns, alert-rule concentration and behavioural analysis. 
+An end to end AML/KYC transaction monitoring and risk analysis project using SQL, Python, Excel, and Power BI focused on client and transaction data to identify suspicious activity, sanctions/FATF exposure, high-risk sectors and countries, transaction patterns, alert-rule concentration and behavioural analysis. 
 
 # Project Overview
-This project analyses 2000 clients and 50,000 transactions for FATF/OFAC exposure and transaction-monitoring alerts. Here the client master is joined with the transaction ledger to quantify
-alert activity, identify concentration by sector and country, measure monthly stability, and rank clients for review. A transaction is labelled suspicious when at least one of five transaction-level flags is active - OFAC match, FATF-country exposure, structuring, rapid movement, or trade mispricing.
+This project analyses 2000 clients and 50,000 transactions for FATF/OFAC exposure and transaction-monitoring alerts. Here the client master is joined with the transaction ledger to quantify alert activity, identify concentration by sector and country, measure monthly stability, and rank clients for review. A transaction is labelled suspicious when at least one of five transaction-level flags is active - OFAC match, FATF-country exposure, structuring, rapid movement, or trade mispricing.
+
+# Business Objective
+
+The objective of this project is to support a risk-based AML/KYC monitoring approach by combining static client risk indicators with transaction-level behavior.
+
+The analysis helps identify:
+
+* Which clients require closer review?
+* Where suspicious activity is concentrated?
+* Which AML rules generate the most alerts?
+* Which countries and sectors have elevated risk indicators?
+* Which transactions deviate significantly from normal client behavior?
 
 # Key Performance Indicators:
-•	50,000 transactions across 2,000 clients
+•	50,000 transactions across 2,000 clients.
 
-•	Total transaction value of approximately $209.8 million
+•	Total transaction value of approximately $209.8 million.
 
-•	4,489 suspicious transactions, representing 8.98% of all transactions
+•	4,489 suspicious transactions, representing 8.98% of all transactions.
 
 •	Suspicious transactions represented approximately $22.2 million, or 10.6% of total transaction value.
 
@@ -44,15 +54,75 @@ alert activity, identify concentration by sector and country, measure monthly st
 
 # Recommendations:
 * Operational controls:
-Review rapid-movement alerts for false-positive patterns, especially where transfers are routine treasury activity. Introduce a second-stage rule that considers velocity,
- amount, counterparty novelty, and time between outgoing and incoming movements.
+Review rapid-movement alerts for false-positive patterns, especially where transfers are routine treasury activity. Introduce a second-stage rule that considers velocity,amount, counterparty novelty, and time between outgoing and incoming movements.
  
 * Risk-based segmentation:
-Apply enhanced due diligence and tighter monitoring to clients in Energy/Oil, Defence/Arms, and Import/Export, while preserving volume-based controls so that lower-rate
-but high-value segments are not overlooked.
+Apply enhanced due diligence and tighter monitoring to clients in Energy/Oil, Defence/Arms, and Import/Export, while preserving volume-based controls so that lower-rate but high-value segments are not overlooked.
 
 * Alert quality and model governance:
-Capture investigator outcomes for every alert, then measure precision, false-positive rate, time to-disposition, and value-at-risk. These labels can support a calibrated
-scoring model and threshold optimization
-
 Capture investigator outcomes for every alert, then measure precision, false-positive rate, time to-disposition, and value-at-risk. These labels can support a calibrated scoring model and threshold optimization
+
+# Repository Contents
+
+├── aml_analysis.sql --------# SQL queries for AML analysis
+
+├── AML_Transaction_Data.xlsx---------# Transaction and client dataset
+
+├── AML_Analysis_Python.ipynb ----------# Python data cleaning and analysis
+
+├── AML_Dashboard.pbix --------# Power BI interactive dashboard
+
+|── Project_Structure.pdf-------# Project overview and key findings
+
+|── README.md --------# Project documentation
+
+
+# Tools Used
+^ MySQL Workbench — data analysis, aggregation, CTEs, risk calculations and business queries
+
+^ Python / Pandas — data cleaning, transformation, risk scoring and statistical analysis
+
+^ Excel — dataset
+
+^ Power BI — Interactive dashboards, KPIs and risk visualizations
+
+# How to Run
+Clone this repository.
+1. Python Analysis
+* Open Jupiter Notebook.Install the required Python libraries:
+  pip install pandas numpy
+* run the schema-creation section of aml monitoring_Python.ipynb 
+* Run the notebook cells sequentially
+* Create MySQL connection and connect the analysis to MYSQL for further analysis.
+
+2. SQL Analysis
+* Open MySQL Workbench.
+* Create the required database and tables.  
+* Import the AML transaction dataset.
+* Open aml_monitoring_Sqlquery.sql.
+* Run the queries section by section to reproduce the analysis.
+
+3. Power BI Dashboard
+* Open:AML_Dashboard.pbix
+* Refresh the dataset if required.
+* The Power BI dashboard includes:
+  |Total Transactions|
+  |Total Transaction Value|
+  |Suspicious Transactions|
+  |Suspicious Transaction Rate|
+  |High-Risk Clients|
+  |OFAC-Flagged Clients|
+  |FATF-Flagged Clients|
+  |PEP Clients|
+  |Sanctions-Flagged Clients|
+  |Total AML Alerts|
+  |Outlier Transactions|
+  |High-Value Clients|
+
+# Author
+Shwetha Gangegowda
+
+Data Analytics | SQL | Python | Power BI | AML/KYC Analytics
+
+
+
